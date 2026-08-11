@@ -1,0 +1,2 @@
+.\newcf.ps1 A-Watermelon
+ ..\test.ps1     for running the code testing 
