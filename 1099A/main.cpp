@@ -32,7 +32,6 @@ void solve()
 
     cout<<w<<endl;
 
-
 }
 
 int main()
