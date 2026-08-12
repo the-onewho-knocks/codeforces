@@ -9,12 +9,15 @@ if ($LASTEXITCODE -ne 0) {
     exit
 }
 
-Get-Content "$folder\input.txt" |
-    & "$folder\main.exe" |
-    Out-File -Encoding utf8 "$folder\output.txt"
+# Use CMD redirection for reliable stdin/stdout streaming in C++
+cmd /c "$folder\main.exe < `"$folder\input.txt`" > `"$folder\output.txt`""
 
-$expected = (Get-Content "$folder\expected.txt" -Raw).Trim()
-$actual = (Get-Content "$folder\output.txt" -Raw).Trim()
+# Safely read expected and actual output without crashing on empty files
+$expectedRaw = Get-Content "$folder\expected.txt" -Raw
+$actualRaw   = Get-Content "$folder\output.txt" -Raw
+
+$expected = if ($null -ne $expectedRaw) { $expectedRaw.Trim() } else { "" }
+$actual   = if ($null -ne $actualRaw)   { $actualRaw.Trim() }   else { "" }
 
 if ($expected -eq $actual) {
     Write-Host ""
