@@ -1,2 +1,8 @@
 .\newcf.ps1 A-Watermelon
  ..\test.ps1     for running the code testing 
+
+
+for linux
+
+./create.sh 739-daily-temperatures
+../run.sh
