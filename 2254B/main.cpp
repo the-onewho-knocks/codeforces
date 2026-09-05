@@ -3,12 +3,12 @@ using namespace std;
 
 void solve()
 {
-    int t ;
-    cin>>t;
+    // int t ;
+    // cin>>t;
 
-    while(t --){
-        int n;
-        string s;
+    // while(t --){
+        int n = 3;
+        string s = "abb";
 
         cin>>n>>s;
 
@@ -33,9 +33,10 @@ void solve()
                 }
             }
         }
-
-        cout<<block - best<<endl;
-    }
+        cout<<block<<endl;
+        cout<<best<<endl;
+     //   cout<<block - best<<endl;
+    //}
 }
 
 int main() {
