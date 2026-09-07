@@ -50,3 +50,7 @@ echo "  input.txt"
 echo "  output.txt"
 echo "  expected.txt"
 echo ""
+
+# Open selected files in VS Code
+code "$mainFile" "$inputFile" "$expectedFile"
+```
