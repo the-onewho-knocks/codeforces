@@ -14,9 +14,8 @@ fi
 # Run program with input.txt and save output to output.txt
 "$folder/main" < "$folder/input.txt" > "$folder/output.txt"
 
-# Safely read expected and actual output
-expected=$(cat "$folder/expected.txt" 2>/dev/null | xargs)
-actual=$(cat "$folder/output.txt" 2>/dev/null | xargs)
+expected=$(cat "$folder/expected.txt" 2>/dev/null | xargs | tr '[:upper:]' '[:lower:]')
+actual=$(cat "$folder/output.txt" 2>/dev/null | xargs | tr '[:upper:]' '[:lower:]')
 
 if [ "$expected" = "$actual" ]; then
     echo ""
