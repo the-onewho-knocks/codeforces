@@ -22,11 +22,12 @@ $actual   = if ($null -ne $actualRaw)   { $actualRaw.Trim() }   else { "" }
 if ($expected -eq $actual) {
     Write-Host ""
     Write-Host "PASSED" -ForegroundColor Green
+    Write-Host "hellll yeahhhhh" -ForegroundColor Magenta
 }
 else {
     Write-Host ""
-    Write-Host "FAILED" -ForegroundColor Red
-
+    Write-Host "FAILED bruh" -ForegroundColor Red
+    Write-Host "try again bruh" -ForegroundColor gray
     Write-Host ""
     Write-Host "Expected:"
     Write-Host $expected
