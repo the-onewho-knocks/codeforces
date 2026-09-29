@@ -11,18 +11,30 @@ void solve(){
     string s;
     cin >> s;
 
-    if(is_sorted(s.begin() , s.end())){
-        cout<<0<<endl;
+    int zero = count(s.begin() , s.end() , '0');
+
+    if(s[0] == '1'){
+        cout<<zero<<endl;
         return;
     }
-    else if(s[0] == '1'){
-        int count = 0;
-        for(int i = 1 ; i < n ; ++i){
-            if(s[i] == '0'){
-                count++;
-            }
+
+    int one = 0;
+    int ans = INT_MAX;
+     //zero = 4 // one = 1
+    //01000
+    // 3 , 2 ,1 , 0
+    for(int i = 0 ; i < n ; ++i){
+        if(s[i] == '1'){
+            one++;
         }
+        else{
+            zero--;
+        }
+
+        ans = min(ans , one + zero); //3 , 2 , 1
     }
+
+    cout<<ans<<endl;
 
 }
 
