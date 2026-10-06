@@ -8,29 +8,23 @@ void solve()
 
     while (t--)
     {
-        int n;
-        int field;
+        int n , k;
+        cin >> n >> k;
+
         string s;
-        cin >> n >> field >> s;
-        int count = 0;
+        cin >> s;
 
-        for (int i = 0; i < s.length(); i += field)
-        {
-            bool haszero = false;
-            for(int j = i ; j < i + field ; ++j ){
-                if(s[j] == '0'){
-                    haszero = true;
-                    break;
-                }
-            }
+        char target = '0';
+        long long count = 0;
 
-            if(!haszero){
+        for(int i = 0 ; i<n; i += k){
+            string p = s.substr(i , k);
+            if(p.find(target) == string::npos){
                 count++;
             }
         }
 
         cout<<count<<endl;
-
     }
 }
 
