@@ -17,7 +17,8 @@ void solve(){
     long long maxlen = 0;
     long long current = 0;
     long long previous = INT_MIN;
-
+    //4 3 2 5 3  abd it is a set so it will be sorted as well and duplicates also removed
+    // 2 3 4 5
     for(long long x : st){
 
         if(x == previous + 1){
