@@ -16,6 +16,7 @@ $expectedFile = Join-Path $FolderName "expected.txt"
 $cppCode = @"
 #include <bits/stdc++.h>
 using namespace std;
+using ll = long long;
 
 void solve(){
 
