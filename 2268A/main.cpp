@@ -17,25 +17,22 @@ void solve()
 
     // 4 2
     // 1 2 3 4
-    int score = 0;
+    long long score = 0;
 
-    while (n < k)
+    while (n >= k)
     {
-        if (k >= v.size() || (n - k + 1) >= v.size())
-            break;
-
-        int s = v[k];
-        int a = v[n - k + 1];
+        int s = v[k - 1];
+        int a = v[n - k];
 
         if (s > a)
         {
             score += s;
-            v.erase(remove(v.begin(), v.end(), s), v.end());
+            v.erase(v.begin() + (k - 1));
         }
         else
         {
             score += a;
-            v.erase(remove(v.begin(), v.end(), a), v.end());
+            v.erase(v.begin() + (n - k));
         }
 
         n--;
