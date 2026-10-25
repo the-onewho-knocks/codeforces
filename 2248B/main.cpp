@@ -16,7 +16,7 @@ void solve() {
     if (n < 2 * m) {
         cout << "NO\n";
         return;
-    }
+    } 
 
     int i = 0;
 
