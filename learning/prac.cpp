@@ -3,44 +3,75 @@ using namespace std;
 
 int main()
 {
-    int n, m, k;
-    cin >> n >> m >> k;
+    int n, k;
+    cin >> n >> k;
 
     vector<int> v(n);
-    vector<int> p(m);
+    for(auto& x : v) cin >> x;
 
-    for (auto &x : v)
-        cin >> x;
-    for (auto &x : p)
-        cin >> x;
-
-    sort(v.begin(), v.end());
-    sort(p.begin(), p.end());
-
-    int i = 0;
-    int j = 0;
+    sort(v.begin() , v.end());
+    //1 1 1 2 2 2 2 2 2 2 
     int count = 0;
+    // 7 2 3 9
+    //2 3 7 9
 
-    while (i < n && j < m)
-    {
-        if (v[i] - k > p[j])
-        {
-            j++;
+    int left = 0;
+    int right = n - 1;
+
+    while(left <= right){
+        if(left != right &&  v[left] + v[right] <= k ){
+            left++;
+            right--;
         }
-        else if (v[i] + k < p[j])
-        {
-            i++;
+        else{
+            right--;
         }
-        else
-        {
-            count++;
-            j++;
-            i++;
-        }
+
+        count++;
     }
-
     cout << count << endl;
 }
+
+// int main()
+// {
+//     int n, m, k;
+//     cin >> n >> m >> k;
+
+//     vector<int> v(n);
+//     vector<int> p(m);
+
+//     for (auto &x : v)
+//         cin >> x;
+//     for (auto &x : p)
+//         cin >> x;
+
+//     sort(v.begin(), v.end());
+//     sort(p.begin(), p.end());
+
+//     int i = 0;
+//     int j = 0;
+//     int count = 0;
+
+//     while (i < n && j < m)
+//     {
+//         if (v[i] - k > p[j])
+//         {
+//             j++;
+//         }
+//         else if (v[i] + k < p[j])
+//         {
+//             i++;
+//         }
+//         else
+//         {
+//             count++;
+//             j++;
+//             i++;
+//         }
+//     }
+
+//     cout << count << endl;
+// }
 
 // int main(){
 //     int n = 4;
